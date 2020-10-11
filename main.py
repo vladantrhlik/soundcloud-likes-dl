@@ -7,16 +7,20 @@ import pprint
 import subprocess
 from moviepy.editor import *
 
-stolen_client_id = "a3dd183a357fcff9a6943c0d65664087"
-user_id = "YOUR_USER_ID"
 
+#-----------------EDIT-THIS---------------------------
+user_id = "YOUR_USER_ID"
+tracks_folder = "PATH_TO_FOLDER_FOR_DOWNLOADED_TRACKS"
+#-----------------------------------------------------
+
+stolen_client_id = "a3dd183a357fcff9a6943c0d65664087"
 client = soundcloud.Client(client_id=stolen_client_id)
 
 tracks = client.get(f'/users/{user_id}/favorites', limit = 50)
 
 urls = []
 
-tracks_folder = "PATH_TO_FOLDER_FOR_DOWNLOADED_TRACKS"
+
 
 downloaded = os.listdir(tracks_folder)
 #remove counts from downloaded tracks
